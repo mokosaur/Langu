@@ -6,7 +6,7 @@ function connect(user) {
     console.log('Connecting...');
     conn.onopen = function () {
         console.log('Connected.');
-        conn.send(user + ',english,3');
+        conn.send('auth|' + user);
     };
     conn.onmessage = function (e) {
         console.log('Received: ' + e.data);
@@ -40,7 +40,7 @@ function connect(user) {
                 $.each(form.serializeArray(), function(i, field) {
                     values[field.name] = field.value;
                 });
-                conn.send(JSON.stringify(values));
+                conn.send('answer|' + JSON.stringify(values));
             });
 
         }

@@ -13,16 +13,22 @@ block content
                 .game-container
                     img(src="{{ static_url('assets/alphabet.png') }}").game-icon
                     span Alphabet
-            a(href="/translation")
-                .game-container
-                    .game-icon
-                    span Translation
+            //a(href="/translation")
+            //    .game-container
+            //        .game-icon
+            //        span Translation
             a(href="/reading")
                 .game-container
                     img(src="{{ static_url('assets/reading.png') }}").game-icon
                     span Reading
         h1 Your scores:
         h3 alphabet
-        p {{alphabet_scores}}
+        div
+            p {% for language, score in alphabet_scores.items() %}
+                p {{language.capitalize()}}: {{score}}
+            p {% end %}
         h3 reading
-        p {{reading_scores}}
+        div
+            p {% for language, score in reading_scores.items() %}
+                p {{language.capitalize()}}: {{score}}
+            p {% end %}

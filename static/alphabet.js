@@ -6,7 +6,7 @@ function connect(user) {
     console.log('Connecting...');
     conn.onopen = function () {
         console.log('Connected.');
-        conn.send(user);
+        conn.send('auth|' + user);
     };
     conn.onmessage = function (e) {
         console.log('Received: ' + e.data);
@@ -56,15 +56,9 @@ function init(user, score) {
 
 function drawLetters() {
     for(var i = 0; i < wheel.getLength(); i++) {
-        (function() {
-            var letter = pool.newLetter(wheel.getLetter(i), "Violet", 30);
-            letter.setPosition(x + Math.sin(Math.PI*2/wheel.getLength()*i)*r, y - Math.cos(Math.PI*2/wheel.getLength()*i)*r);
-
-            letter.container.addEventListener('click', function(e) {
-                chooseLetter(letter);
-            });
-            stage.addChild(letter.container);
-        }());
+        var letter = pool.newLetter(wheel.getLetter(i), "Violet", 30);
+        letter.setPosition(x + Math.sin(Math.PI*2/wheel.getLength()*i)*r, y - Math.cos(Math.PI*2/wheel.getLength()*i)*r);
+        stage.addChild(letter.container);
     }
 
     wheel.chooseNextAnswer();
@@ -84,7 +78,7 @@ function chooseLetter(letter) {
         else {
             middleLetter.text = "Excellent!";
             setTimeout(function() {
-                conn.send(points);
+                conn.send('score|' + points);
             }, 1000);
         }
     }
@@ -176,6 +170,10 @@ Letter.prototype.construct = function() {
         this.letter.textBaseline = "middle";
         this.letter.textAlign = "center";
         this.container.addChild(this.letter);
+        var letter = this;
+        this.container.addEventListener('click', function(e) {
+            chooseLetter(letter);
+        });
     }
 };
 
