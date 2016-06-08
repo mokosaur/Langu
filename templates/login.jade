@@ -1,0 +1,17 @@
+extends layouts/layout
+
+block title
+    title Langu | login
+    script(src="{{ static_url('login.js') }}")
+
+block content
+    form.login-form(method="post", action="/login")
+        h1 Log in!
+        p.error {{error}}
+        input.text-input(autofocus, type="email", name="email", placeholder="e-mail", required)
+        input.text-input#name-input(placeholder="name", name="name")
+        input.text-input(type="password", placeholder="password", name="password", required)
+        button Log in
+        br
+        span No account?
+        #register Register now!

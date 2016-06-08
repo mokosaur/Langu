@@ -1,0 +1,20 @@
+extends layouts/game-layout
+
+block title
+    title Langu | Choose game
+    script(src="{{ static_url('libraries/jquery.lettering-0.6.min.js') }}")
+    script(src="{{ static_url('libraries/jquery.textillate.js') }}")
+    script(src="{{ static_url('reading.js') }}")
+    link(rel="stylesheet", type="text/css", href="{{ static_url('styles/animate.css') }}")
+
+
+block content
+    body(onload="init('{{user}}');")
+        .welcome-box
+            h1.welcome Hello, {{user}}!
+            span#reading-text
+            form.answers(hidden)
+            .results(hidden)
+                h2 Your score:
+                h3.score score/max
+                button.try-again Try again!

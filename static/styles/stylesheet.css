@@ -1,0 +1,138 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Arimo', sans-serif;
+    font-weight: lighter;
+    background: linear-gradient(135deg, #e3d0fc 50%, #f4eff8 50%);
+    height: 100%;
+    margin: 0;
+}
+
+.login-form {
+    margin: auto;
+    width: 300px;
+    text-align: center;
+    border: 2px #640095 solid;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input.text-input {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: lighter;
+}
+
+input.text-input:focus {
+    outline-color: #A100FF;
+}
+
+button {
+    background-color: #f5dbff;
+    border-color: #640095;
+    border-width: 1px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-family: 'Arimo', sans-serif;
+    font-weight: lighter;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background-color 1s;
+}
+
+button:hover {
+    background-color: #cab4d1;
+}
+
+span {
+    font-size: 14px;
+}
+
+#register {
+    color: #A100FF;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#register:hover {
+    transform: scale(1.1, 1.1);
+}
+
+h1 {
+    font-family: 'Comfortaa', cursive;
+    font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+.welcome-box {
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px #640095 solid;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.welcome {
+    margin: 0 auto;
+}
+
+.error {
+    color: #ff2d65;
+    font-weight: bold;
+}
+
+#game-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.game-container {
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.game-icon {
+    display: block;
+    border-bottom: 1px solid black;
+    width: 100px;
+    height: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+form.answers {
+    text-align: left;
+    padding: 10px;
+}
+
+.question {
+    font-size: 20px;
+}

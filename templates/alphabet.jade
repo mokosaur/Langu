@@ -1,0 +1,14 @@
+extends layouts/game-layout
+
+block title
+    title Langu | Choose game
+    script(src="https://code.createjs.com/easeljs-0.8.2.min.js")
+    script(src="https://code.createjs.com/tweenjs-0.6.2.min.js")
+    script(src="{{ static_url('alphabet.js') }}")
+
+
+block content
+    body(onload="init('{{user}}', {{score}});")
+        .welcome-box
+            h1.welcome Pick correct letter!
+            canvas#game(width="500", height="500")

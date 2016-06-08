@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+        script(src="{{ static_url('libraries/jquery-1.12.4.min.js') }}")
+        link(href='https://fonts.googleapis.com/css?family=Comfortaa:400,700|Arimo:400,700&subset=latin-ext,latin,greek,cyrillic',rel='stylesheet', type='text/css')
+        link(rel="stylesheet", type="text/css", href="{{ static_url('styles/stylesheet.css') }}")
+        block title
+            title Default title
+    body
+        block content
