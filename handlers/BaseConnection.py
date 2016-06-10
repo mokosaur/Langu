@@ -12,9 +12,16 @@ class BaseConnection(SockJSConnection):
         self.db = DatabaseConnection()
 
     def on_message(self, message):
-        request, body = message.split('|', 1)
+        body = None
+        if '|' in message:
+            request, body = message.split('|', 1)
+        else:
+            request = message
         callback = getattr(self, 'on_' + request)
-        callback(body)
+        if body is not None and len(body) > 0:
+            callback(body)
+        else:
+            callback()
 
     @gen.engine
     def on_auth(self, message):
